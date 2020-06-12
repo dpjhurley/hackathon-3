@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pet;
 
 class PetController extends Controller
 {
@@ -10,6 +11,6 @@ class PetController extends Controller
     {
         $pets = Pet::all();
 
-        return view('pets/index', compact('books'));
+        return view('pets/index', compact('pets'));
     }
 }
