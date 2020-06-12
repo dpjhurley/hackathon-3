@@ -7,7 +7,7 @@
     {{-- success message --}}
     @if (Session::has('success_message'))
     
-        <div class="alert alert-success">
+        <div class="alert alert-success container">
             {{ Session::get('success_message') }}
         </div>
     

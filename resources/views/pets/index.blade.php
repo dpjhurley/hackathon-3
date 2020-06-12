@@ -13,6 +13,9 @@
 
 
     </form>
+
+    <a class="btn" href="{{route("pets.create")}}">Create a pet profile</a>
+
     <div class='pet-display'>
         @foreach ($pets as $pet)
         <div class="pet">

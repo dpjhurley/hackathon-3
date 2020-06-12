@@ -10,7 +10,10 @@
         <label for="search_by_owner_name">Search by name</label>
         <input type="text" name="search_by_owner_name" placeholder="Owner name HERE" value="{{ old('search_by_owner_name') }}">
         <button type="submit"> SUBMIT </button>
-        </form>
+    </form>
+
+    <a class="btn" href="{{route("owners.create")}}">Create a owner profile</a>
+
 
     <div class="owners-display">
         @foreach ($owners as $value)
