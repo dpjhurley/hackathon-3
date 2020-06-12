@@ -18,4 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/pets', 'PetController@index');
+Route::get('/pets', 'PetController@index')->name('pets.index');
+
+
+Route::get('/owners', 'OwnerController@index')->name('owners.index');
