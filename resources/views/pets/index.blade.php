@@ -19,7 +19,7 @@
             
             <h2>{{ $pet->name }}</h2>
             <p>{{ $pet->breed }}</p>
-            <p>{{ $pet->weigh }}</p>
+            <p>{{ $pet->weight }}</p>
             <p>{{ $pet->age }}</p>
             <a href="{{route('pet_id', $pet->id)}}">Go To {{$pet->name}} Profile</a>
            
