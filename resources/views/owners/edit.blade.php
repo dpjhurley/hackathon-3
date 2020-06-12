@@ -23,6 +23,8 @@
         </div>
     @endif
     
+    <div class="container">
+
     @if ($owner->id)
         {{-- edit --}}
         <form action="{{ route('owners.update', [$owner->id]) }}" method="post">
@@ -61,5 +63,7 @@
             <button type="submit">Submit information</button>
 
         </form>
+    
+    </div>
 
 @endsection

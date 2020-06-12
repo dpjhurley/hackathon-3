@@ -12,5 +12,7 @@
     <a class="btn" href="{{route('pet_id', $pet->id)}}">Go To {{$pet->name}} Profile</a>
 @endforeach'
 
+<a class="btn" href="{{route("owners.edit", $owners->id)}}">edit this owner</a>
+
 </div>
 @endsection

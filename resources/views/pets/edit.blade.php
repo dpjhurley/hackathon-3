@@ -23,7 +23,9 @@
         </div>
     @endif
     
-    @if ($pet->id)
+    <div class="container">
+    
+        @if ($pet->id)
         {{-- edit --}}
         <form action="{{ route('pets.update', [$pet->id]) }}" method="post">
             @method('PUT') 
@@ -76,5 +78,7 @@
             <button type="submit">Submit information</button>
 
         </form>
+
+    </div>
 
 @endsection
