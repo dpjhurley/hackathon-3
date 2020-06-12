@@ -10,13 +10,13 @@ $success = connect('localhost', 'pet_clinic', 'root', 'rootroot');
 $data = json_decode(file_get_contents('clients.json'), true);
 
 
-DB::statement('TRUNCATE TABLE `owner`');;
-DB::statement('TRUNCATE TABLE `pet`');;
+DB::statement('TRUNCATE TABLE `owners`');;
+DB::statement('TRUNCATE TABLE `pets`');;
 
 foreach($data as $key => $value){
     $query =  '
         INSERT 
-    INTO `owner`  
+    INTO `owners`  
     (`first_name`, `surname`)
     Values
     (?, ?)
@@ -25,7 +25,7 @@ foreach($data as $key => $value){
 echo 'inserted';
     foreach($value['pets'] as $pets){
         $query1 =   ' INSERT 
-        INTO `pet`  
+        INTO `pets`  
         (`owner_id`,`name`,`breed`,`weight`,`age`,`photo` )
         Values
         (?, ?, ?, ?, ?, ?)';
