@@ -19,6 +19,13 @@ Route::get('/', function () {
 
 
 Route::get('/pets', 'PetController@index')->name('pets.index');
+Route::get('/pets/{pet_id}', 'PetController@show')->where('pet_id','[0-9]+');
+
+
 
 
 Route::get('/owners', 'OwnerController@index')->name('owners.index');
+
+Route::get('/doctor', 'DoctorController@index')->name('owners.index');
+
+Route::get('/species', 'SpeciesController@index')->name('owners.index');
