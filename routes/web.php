@@ -26,6 +26,8 @@ Route::post('/pets', 'PetController@index');
 
 
 Route::get('/owners', 'OwnerController@index')->name('owners.index');
+Route::get('/owners/{id}', 'OwnerController@show')->where('id','[0-9]+')->name('owner_id');
+Route::post('/owners', 'OwnerController@index')->name('owners.index');
 
 Route::get('/doctor', 'DoctorController@index')->name('doctor.index');
 
