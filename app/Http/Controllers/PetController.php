@@ -6,9 +6,13 @@ use Illuminate\Http\Request;
 use App\Pet;
 class PetController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $pets = Pet::all();
+        if($request->input('search_by_pet_name')){
+            $pets = Pet::where('name', 'like', "%".$request->input('search_by_pet_name')."%")->get();
+        } else {
+            $pets = Pet::all();
+        }
 
         return view('pets/index', compact('pets'));
     }
