@@ -18,6 +18,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/test', function () {
-    return 'TEST PAGE';
-});
+Route::get('/pets', 'PetController@index');
