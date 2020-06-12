@@ -1,9 +1,128 @@
 //
+
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+body{
+   background-color: #f3f3f3;
+   color: #333;
+   
+}
+
+nav{
+   padding: 2rem 0.2rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   font-size: 30px;
+   a{
+      text-decoration: none;
+      color: #fff;
+      background-color: #333;
+      padding: 1rem 3rem;
+      transition: 0.5s ease-in-out;
+      &:hover{
+         background-color:#f3f3f3;
+         color: #333;
+      }
+   }
+
+}
 .owner-row{
     display: flex;
-    width: 800px;
- margin-left: 5px;
+    width: auto;
+    align-items: flex-start;
+    justify-content: space-between;
+     margin-left: 5px;
  p{
     margin-left: 10px;
+    font-family: 'Courier New', Courier, monospace;
  }
+}
+.container{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ 
+ .btn {
+   
+   padding: 1rem 5rem;
+   background-color: #333;
+   color: #f4f4f4;
+   text-decoration: none;
+   margin-top: 1rem;
+
+}
+ form{
+    input{
+       height: 30px;
+       margin-bottom: 1rem;
+    }
+    label{
+       color: blue;
+       font-size: 2rem;
+    }
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+justify-content: space-between;
+
+button{
+   background-color: #e4d8d8;
+   height: 30px;
+   transition: 0.5s ease-in-out;
+   &:hover{
+      background-color: #333;
+      color: #f3f3f3;
+   }
+}
+ }
+ h1{
+    color: #111;
+    margin-bottom: 1rem;
+ }
+ p{
+    margin-left: 1rem;
+ }
+ .pet-display, .owners-display{
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+   width: 1000px;
+   margin: 1rem;
+   padding: 2rem;
+   margin: auto;
+   .pet, .owner{
+      display: flex;
+      justify-content: space-between;
+      background-color: #5694E3;
+      align-items: center;
+      
+      div{
+         width: 150px;
+         height: 20px;
+         text-align: start;
+         margin-bottom: 5px;
+         
+      }
+      div:last-child{
+         background-color: #555;
+         color: #f3f3f3;
+         font-size: 1rem;
+      }
+     a{
+        color: #f3f3f3;
+        text-decoration: none;
+     }
+   }
+   .pet:nth-child(odd), .owner:nth-child(odd){
+      background-color: #3DD6C4;
+   }
+ }
+
+}
+.container>p{
+   font-size: 2rem;
 }

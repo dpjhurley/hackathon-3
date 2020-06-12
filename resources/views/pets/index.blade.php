@@ -3,12 +3,12 @@
 ])
 
 @section('content')
-
-    <h1>Pets Index</h1>
+    <div class="container">
+    <h1>Pets List</h1>
     <form action="/pets" method="post" >
         @csrf
         <label for="search_by_pet_name">Search by name</label>
-        <input type="text" name="search_by_pet_name" value="{{ old('search_by_pet_name') }}">
+        <input type="text" placeholder="Pet Name HERE" name="search_by_pet_name" value="{{ old('search_by_pet_name') }}">
         <button type="submit"> SUBMIT </button>
 
 
@@ -17,12 +17,13 @@
         @foreach ($pets as $pet)
         <div class="pet">
             
-            <h2>{{ $pet->name }}</h2>
-            <p>{{ $pet->breed }}</p>
-            <p>{{ $pet->weigh }}</p>
-            <p>{{ $pet->age }}</p>
-            <a href="{{route('pet_id', $pet->id)}}">Go To {{$pet->name}} Profile</a>
+            <div>{{ $pet->name }}</div>
+            <div>{{ $pet->breed }}</div>
+            <div>{{ $pet->weight }}</div>
+            <div>{{ $pet->age }}</div>
+           <div> <a href="{{route('pet_id', $pet->id)}}">Go To {{$pet->name}} Profile</a></div>
            
             </div>
             @endforeach
+        </div>
 @endsection
