@@ -22,7 +22,6 @@ foreach($data as $key => $value){
     (?, ?)
     ';
     DB::insert($query, [$value['first_name'],$value['surname'] ]);
-echo 'inserted';
     foreach($value['pets'] as $pets){
         $query1 =   ' INSERT 
         INTO `pets`  

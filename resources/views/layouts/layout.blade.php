@@ -16,6 +16,5 @@
     @yield('content')
 
 
-    HELOO WORLD
 </body>
 </html>
