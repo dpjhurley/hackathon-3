@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? '' }} | Pet Clinic</title>
 
-    {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
 </head>
 <body>
