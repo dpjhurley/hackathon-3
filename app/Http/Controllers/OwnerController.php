@@ -18,15 +18,65 @@ class OwnerController extends Controller
         return view('owners/index', compact('owners'));
     }
 
-    public function show($id){
-        
-       
+    public function show($id)
+    {    
+        $owners = Owner::findOrFail($id);
 
-         $owners = Owner::findOrFail($id);
+        $pets = Pet::where('owner_id', $id)->get();
 
-         $pets = Pet::where('owner_id', $id)->get();
+        return view('owners.show', compact('owners' , 'pets'));
 
-         return view('owners.show', compact('owners' , 'pets'));
+    }
 
-        }
+    public function create()
+    {
+        $owner = new Owner;
+
+        return view('owners.edit', compact('owner'));
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'first_name' => 'required',
+            'surname' => 'required'
+        ]);
+
+        $owner = new Owner;
+
+        $owner->breed = $request->input('first_name');
+        $owner->photo = $request->input('surname');
+   
+        $owner->save();
+
+        session()->flash('success_message', 'Your owner was successfully saved!');
+
+        return redirect()->route('owners.edit', [$owner->id]);
+    }
+
+    public function edit($id)
+    {
+        $owner = Owner::findOrFail($id);
+
+        return view('owners.edit', compact('owner'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'first_name' => 'required',
+            'surname' => 'required'
+        ]);
+
+        $owner = Owner::findOrFail($id);
+      
+        $owner->breed = $request->input('first_name');
+        $owner->photo = $request->input('surname');
+
+        $owner->save();
+
+        session()->flash('success_message', 'Your owner was successfully saved!');
+
+        return redirect()->route('owners.edit', [$owner->id]);
+    }
 }

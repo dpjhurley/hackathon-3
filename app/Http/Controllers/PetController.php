@@ -19,14 +19,69 @@ class PetController extends Controller
         return view('pets/index', compact('pets'));
     }
 
-    public function show($pet_id){
-        
-        
+    public function show($pet_id)
+    {
          $pet = Pet::findOrFail($pet_id);
 
          $owner = Owner::where('id', $pet->owner_id)->first();
 
          return view('pets.show', compact('pet','owner'));
         }
+
+    public function create()
+    {
+        $pet = new Pet;
+
+        return view('pets.edit', compact('pet'));
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+
+        $pet = new Pet;
+
+        $pet->name = $request->input('name');
+        $pet->weight = $request->input('weight');
+        $pet->age = $request->input('age');
+        $pet->breed = $request->input('breed');
+        $pet->photo = $request->input('photo');
+   
+        $pet->save();
+
+        session()->flash('success_message', 'Your pet was successfully saved!');
+
+        return redirect()->route('pets.edit', [$pet->id]);
+    }
+
+    public function edit($id)
+    {
+        $pet = Pet::findOrFail($id);
+
+        return view('pets.edit', compact('pet'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+
+        $pet = Pet::findOrFail($id);
+
+        $pet->name = $request->input('name');
+        $pet->weight = $request->input('weight');
+        $pet->age = $request->input('age');
+        $pet->breed = $request->input('breed');
+        $pet->photo = $request->input('photo');
+
+        $pet->save();
+
+        session()->flash('success_message', 'Your pet was successfully saved!');
+
+        return redirect()->route('pets.edit', [$pet->id]);
+    }
 }
 
