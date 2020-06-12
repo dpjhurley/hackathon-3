@@ -17,11 +17,19 @@
         @foreach ($pets as $pet)
         <div class="pet">
             
+<<<<<<< HEAD
             <div>{{ $pet->name }}</div>
             <div>{{ $pet->breed }}</div>
             <div>{{ $pet->weight }}</div>
             <div>{{ $pet->age }}</div>
            <div> <a href="{{route('pet_id', $pet->id)}}">Go To {{$pet->name}} Profile</a></div>
+=======
+            <h2>{{ $pet->name }}</h2>
+            <p>{{ $pet->breed }}</p>
+            <p>{{ $pet->weight }}</p>
+            <p>{{ $pet->age }}</p>
+            <a href="{{route('pet_id', $pet->id)}}">Go To {{$pet->name}} Profile</a>
+>>>>>>> f82e65e5b4e7ecabf13d1f5df938d1fbc35804b7
            
             </div>
             @endforeach
