@@ -37,15 +37,15 @@ class OwnerController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
+        /* $this->validate($request, [
             'first_name' => 'required',
             'surname' => 'required'
-        ]);
+        ]); */
 
         $owner = new Owner;
 
-        $owner->breed = $request->input('first_name');
-        $owner->photo = $request->input('surname');
+       /*  $owner->first_name = $request->input('first_name');
+        $owner->surname = $request->input('surname'); */
    
         $owner->save();
 
@@ -63,15 +63,15 @@ class OwnerController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+       /*  $this->validate($request, [
             'first_name' => 'required',
             'surname' => 'required'
-        ]);
+        ]); */
 
         $owner = Owner::findOrFail($id);
       
-        $owner->breed = $request->input('first_name');
-        $owner->photo = $request->input('surname');
+       /*  $owner->first_name = $request->input('first_name');
+        $owner->surname = $request->input('surname'); */
 
         $owner->save();
 
